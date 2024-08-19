@@ -11,7 +11,7 @@ function getComputerChoice(){
     }
     return computerChoice;
 }
-
+/*
 function getHumanChoice(humanChoice){
     let result;
 
@@ -24,7 +24,7 @@ function getHumanChoice(humanChoice){
     }
     return result;
 }
-
+*/
 function playRound(humanChoice, computerChoice){
     let winner;
 
@@ -49,7 +49,7 @@ function playRound(humanChoice, computerChoice){
         winner = `You lose! ${computerChoice} beats ${humanChoice}`;
        // computerScore++;
     }
-    return console.log(winner); 
+    return winner; 
 }
 
 function playGame(){
@@ -72,7 +72,7 @@ function playGame(){
         } else {
             finalWinner = `You lost! The final winner is the computer with a score of ${computerScore}`;
         }
-        return console.log(finalWinner);
+        return finalWinner;
     }
 
     showFinalWinner(humanScore, computerScore);
@@ -85,19 +85,26 @@ const $btnScissors = document.querySelector('#scissors');
 $btnRock.addEventListener("click", () => {
     const humanChoice = 'Rock';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const $roundResult = document.createElement('div');
+    document.body.appendChild($roundResult);
+    $roundResult.textContent = playRound(humanChoice, computerChoice);
+
 });
 
 $btnPaper.addEventListener("click", () => {
     const humanChoice = 'Paper';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const $roundResult = document.createElement('div');
+    document.body.appendChild($roundResult);
+    $roundResult.textContent = playRound(humanChoice, computerChoice);
 });
 
 $btnScissors.addEventListener("click", () => {
     const humanChoice = 'Scissors';
     const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    const $roundResult = document.createElement('div');
+    document.body.appendChild($roundResult);
+    $roundResult.textContent = playRound(humanChoice, computerChoice);
 });
 
 // playGame();
